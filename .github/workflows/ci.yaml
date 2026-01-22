@@ -8,8 +8,9 @@ on:
       - main
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
+  docker:
+    runs-on: self-hosted
+    
     steps:
       - name: shorten commit id
         shell: bash
