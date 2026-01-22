@@ -32,7 +32,7 @@ jobs:
           push: true
           tags: makanju/python-app:${{ env.COMMIT_ID}}
     outputs:
-      commit_id:${{ env.COMMIT_ID}}
+      commit_id: ${{ env.COMMIT_ID}}
 
   cd:
     needs: ci
