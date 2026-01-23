@@ -50,7 +50,7 @@ jobs:
       - name: Modify values file
         shell: bash
         run: |
-          export PAth="$HOME/.local/bin:PATH"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           echo ${{needs.ci.outputs.commit_id}}
           yq -Yi '.image.tag = "{{needs.ci.outputs.commit_id}}"' charts/python-app/values.yaml
 
