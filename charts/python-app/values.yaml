@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: makanju/python-app
   pullPolicy: IfNotPresent
-  tag: f4940e5
+  tag: 2b22e69
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
