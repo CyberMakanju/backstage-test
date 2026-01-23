@@ -43,7 +43,7 @@ jobs:
       - name: Modify values file
         shell: bash
         run: |
-          echo "Using COMMIT_ID=${{needs.ci.outputs.commit_id}}""
+          echo "Using COMMIT_ID=${{needs.ci.outputs.commit_id}}"
           curl -sL https://github.com/mikefarah/yq/releases/download/v4.40.5/yq_linux_amd64 -o /tmp/yq
           chmod +x /tmp/yq
           /tmp/yq -i '.image.tag = env(COMMIT_ID)' charts/python-app/values.yaml
