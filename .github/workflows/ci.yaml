@@ -41,12 +41,13 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Modify values file
-        env:
-          SHORT_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          echo ${{needs.ci.outputs.commit_id}}
         run: |
          curl -sL https://github.com/mikefarah/yq/releases/download/v4.40.5/yq_linux_amd64 -o /tmp/yq
          chmod +x /tmp/yq
-         /tmp/yq -i ".image.tag = \"${SHORT_SHA::7}\"" ./charts/python-app/values.yaml
+         yq -Yi '.image.tag = "${{needs.ci.outputs.commit_id}}"' charts/python-app/values.yaml
  
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
