@@ -45,13 +45,14 @@ jobs:
          python3 -m venv .venv --without-pip
          source .venv/bin/activate
          curl -sS https://bootstrap.pypa.io/get-pip.py | python3
-         pip install yq
+         
 
       - name: Modify values file
         shell: bash
         run: |
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           echo ${{needs.ci.outputs.commit_id}}
+          pip install yq
           yq -Yi '.image.tag = "{{needs.ci.outputs.commit_id}}"' charts/python-app/values.yaml
 
       - name: Commit changes
