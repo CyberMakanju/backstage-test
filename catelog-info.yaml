@@ -6,6 +6,7 @@ metadata:
   # Example for optional annotations
   annotations:
     github.com/project-slug: CyberMakanju/backstage-test
+    backstage.io/techdocs-ref: dir:.
   
 spec:
   type: service
