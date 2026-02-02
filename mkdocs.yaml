@@ -5,7 +5,6 @@ edit_uri: edit/main/docs
 
 plugins:
   - techdocs-core
-  - redirects:
       
 # For sidebar navigation on https://backstage.io/, see `microsite/sidebars.js`
 nav:
